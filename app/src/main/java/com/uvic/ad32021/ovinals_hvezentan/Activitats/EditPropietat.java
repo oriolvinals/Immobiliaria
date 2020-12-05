@@ -28,7 +28,7 @@ public class EditPropietat extends AppCompatActivity {
         myToolbar.setTitle("Editar la propietat");
         setSupportActionBar(myToolbar);
 
-        Singleton.getInstance().getPropietatById("T4F4nNhXTAtqGawq3HgJ");
+        //Singleton.getInstance().getPropietatById("T4F4nNhXTAtqGawq3HgJ");
     }
 
     @Override

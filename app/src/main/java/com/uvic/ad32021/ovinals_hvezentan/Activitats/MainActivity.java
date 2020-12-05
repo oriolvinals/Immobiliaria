@@ -3,7 +3,6 @@ package com.uvic.ad32021.ovinals_hvezentan.Activitats;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import com.uvic.ad32021.ovinals_hvezentan.Adaptadors.Adapter_Propietat;
@@ -33,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Singleton.getInstance().syncData();
-
         this.list = (ListView)findViewById(R.id.listPropietats);
         this.list_propietats = Singleton.getInstance().getPropietats();
 
@@ -45,9 +38,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
                 Propietat item = (Propietat) parent.getItemAtPosition(position);
-                Log.i("Test", item.toString());
                 Intent i = new Intent(MainActivity.this, InfoPropietat.class);
-                i.putExtra("position", position);
+                i.putExtra("id", item.getId());
                 startActivity(i);
             }
         });
@@ -86,6 +78,4 @@ public class MainActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     }
-
-
 }

@@ -8,9 +8,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
@@ -20,13 +23,17 @@ import com.uvic.ad32021.ovinals_hvezentan.Entitats.Usuari;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Singleton {
     ArrayList<Propietat> list_propietats;
     Usuari user;
+    Propietat actual_propietat;
 
     String user_id;
     FirebaseFirestore db;
@@ -42,19 +49,25 @@ public class Singleton {
 
     private Singleton() {
         this.db = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .build();
+        db.setFirestoreSettings(settings);
         this.storage = FirebaseStorage.getInstance("gs://immobiliaria-e7861.appspot.com/");
 
         this.user_id = "AD";
         this.list_propietats = new ArrayList<Propietat>();
 
         this.syncData();
+    }
 
+    public void setPropietats(ArrayList<Propietat> list){
+        for(Propietat p : list)
+        {
+            Log.v("Tag",p.toString());
+        }
 
-        Propietat p1 = new Propietat("", "User 0", "Carrer A, Vic 21009", "Descripció", "Equipaments", "path imatge", "", 99, 99999.99);
-        Propietat p2 = new Propietat("", "User 1", "Carrer A, Vic 21009", "Descripció", "Equipaments", "path imatge", "usuari1", 99, 99999.99);
-        this.list_propietats.add(p1);
-        this.list_propietats.add(p2);
-
+        this.list_propietats = list;
     }
 
     public ArrayList<Propietat> getPropietats(){
@@ -86,9 +99,8 @@ public class Singleton {
         propietat.put("area", p.getArea());
         propietat.put("preu", p.getPreu());
 
-
         // Add a new document with a generated ID
-        db.collection("propietats")
+        this.db.collection("propietats")
                 .add(propietat)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
@@ -112,11 +124,12 @@ public class Singleton {
         return this.storage;
     }
 
+    //Mostrar totes les propietats
     public void syncData(){
-        db.collection("propietats")
+        this.list_propietats = new ArrayList<Propietat>();
+        this.db.collection("propietats")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    //private ArrayList<Propietat> list_sync = new ArrayList<Propietat>();
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
@@ -132,10 +145,8 @@ public class Singleton {
                                     String user = json.getString("user_id");
                                     int area = json.getInt("area");
                                     double preu = json.getDouble("preu");
-
                                     Propietat p = new Propietat(document.getId().toString(), nom, ubicacio, descripcio, equipaments, imatge, user, area, preu);
-                                    //Log.i("Test", p.toString());
-                                    //this.list_sync.add(p);
+                                    Singleton.getInstance().addPropietatToList(p);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -147,22 +158,11 @@ public class Singleton {
                 });
     }
 
-    public void getPropietatById(String id){
-        DocumentReference docRef = db.collection("propietats").document(id);
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        Log.d("Test", "DocumentSnapshot data: " + document.getData());
-                    } else {
-                        Log.d("Test", "No such document");
-                    }
-                } else {
-                    Log.d("Test", "get failed with ", task.getException());
-                }
-            }
-        });
+    public void addPropietatToList(Propietat p) {
+        this.list_propietats.add(p);
+    }
+
+    public FirebaseFirestore getDB(){
+        return this.db;
     }
 }
