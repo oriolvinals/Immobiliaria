@@ -6,10 +6,16 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.uvic.ad32021.ovinals_hvezentan.Entitats.Propietat;
 import com.uvic.ad32021.ovinals_hvezentan.R;
+import com.uvic.ad32021.ovinals_hvezentan.Singletons.Singleton;
 
 public class EditPropietat extends AppCompatActivity {
 
@@ -21,6 +27,8 @@ public class EditPropietat extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         myToolbar.setTitle("Editar la propietat");
         setSupportActionBar(myToolbar);
+
+        Singleton.getInstance().getPropietatById("T4F4nNhXTAtqGawq3HgJ");
     }
 
     @Override

@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -133,7 +134,7 @@ public class Singleton {
                                     double preu = json.getDouble("preu");
 
                                     Propietat p = new Propietat(document.getId().toString(), nom, ubicacio, descripcio, equipaments, imatge, user, area, preu);
-                                    Log.i("Test", p.toString());
+                                    //Log.i("Test", p.toString());
                                     //this.list_sync.add(p);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -144,5 +145,24 @@ public class Singleton {
                         }
                     }
                 });
+    }
+
+    public void getPropietatById(String id){
+        DocumentReference docRef = db.collection("propietats").document(id);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d("Test", "DocumentSnapshot data: " + document.getData());
+                    } else {
+                        Log.d("Test", "No such document");
+                    }
+                } else {
+                    Log.d("Test", "get failed with ", task.getException());
+                }
+            }
+        });
     }
 }
