@@ -3,6 +3,7 @@ package com.uvic.ad32021.ovinals_hvezentan.Activitats;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -38,6 +40,17 @@ public class MainActivity extends AppCompatActivity {
 
         Adapter_Propietat adapter = new Adapter_Propietat (this, R.layout.adapter_propietat, this.list_propietats);
         this.list.setAdapter(adapter);
+
+        this.list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                Propietat item = (Propietat) parent.getItemAtPosition(position);
+                Log.i("Test", item.toString());
+                Intent i = new Intent(MainActivity.this, InfoPropietat.class);
+                i.putExtra("position", position);
+                startActivity(i);
+            }
+        });
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         myToolbar.setTitle("Llista de propietats");
@@ -73,4 +86,6 @@ public class MainActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     }
+
+
 }

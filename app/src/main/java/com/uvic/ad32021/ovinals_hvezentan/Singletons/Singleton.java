@@ -50,10 +50,10 @@ public class Singleton {
         this.syncData();
 
 
-        /*Propietat p1 = new Propietat("", "User 0", "Carrer A, Vic 21009", "Descripció", "Equipaments", "path imatge", "", 99, 99999.99);
+        Propietat p1 = new Propietat("", "User 0", "Carrer A, Vic 21009", "Descripció", "Equipaments", "path imatge", "", 99, 99999.99);
         Propietat p2 = new Propietat("", "User 1", "Carrer A, Vic 21009", "Descripció", "Equipaments", "path imatge", "usuari1", 99, 99999.99);
         this.list_propietats.add(p1);
-        this.list_propietats.add(p2);*/
+        this.list_propietats.add(p2);
 
     }
 
