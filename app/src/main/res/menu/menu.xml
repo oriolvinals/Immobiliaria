@@ -5,9 +5,6 @@
 
     <item
         android:id="@+id/action_login"
-        android:icon="@drawable/ic_baseline_account_box_24"
-        android:title="Login"
-        android:visible="true"
-        app:actionProviderClass="androidx.mediarouter.app.MediaRouteActionProvider"
-        app:showAsAction="ifRoom"></item>
+        android:title="Go to B"
+        app:showAsAction="ifRoom" />
 </menu>

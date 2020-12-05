@@ -1,11 +1,11 @@
 package com.uvic.ad32021.ovinals_hvezentan.Entitats;
 
 public class Propietat {
-    String nom, ubicacio, descripcio, equipaments, imatge;
-    int id, user_id, area;
+    String id, nom, ubicacio, descripcio, equipaments, imatge, user_id;
+    int area;
     double preu;
 
-    public Propietat(int id, String nom, String ubicacio, String descripcio, String equipaments, String imatge, int user_id, int area, double preu) {
+    public Propietat(String id, String nom, String ubicacio, String descripcio, String equipaments, String imatge, String user_id, int area, double preu) {
         this.id = id;
         this.nom = nom;
         this.ubicacio = ubicacio;
@@ -17,11 +17,11 @@ public class Propietat {
         this.preu = preu;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -65,11 +65,11 @@ public class Propietat {
         this.imatge = imatge;
     }
 
-    public int getUser_id() {
+    public String getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
 

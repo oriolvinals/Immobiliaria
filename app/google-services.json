@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "949580676055",
+    "project_id": "immobiliaria-e7861",
+    "storage_bucket": "immobiliaria-e7861.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949580676055:android:ffe336e983f0cac03fe992",
+        "android_client_info": {
+          "package_name": "com.uvic.ad32021.ovinals_hvezentan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949580676055-9ntshm0na45vhh8ufvbk04hfh2rvhjl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBB4o8xCZiBR6R5Md-TP11QWZ6V1GJxcIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949580676055-9ntshm0na45vhh8ufvbk04hfh2rvhjl0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

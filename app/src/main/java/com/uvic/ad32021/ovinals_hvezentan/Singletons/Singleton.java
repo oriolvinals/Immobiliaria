@@ -1,12 +1,36 @@
 package com.uvic.ad32021.ovinals_hvezentan.Singletons;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 import com.uvic.ad32021.ovinals_hvezentan.Entitats.Propietat;
+import com.uvic.ad32021.ovinals_hvezentan.Entitats.Usuari;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Singleton {
     ArrayList<Propietat> list_propietats;
-    int user_id;
+    Usuari user;
+
+    String user_id;
+    FirebaseFirestore db;
+    FirebaseStorage storage;
+
     private static class SingletonInstance {
         private static Singleton INSTANCE = new Singleton();
     }
@@ -16,12 +40,19 @@ public class Singleton {
     }
 
     private Singleton() {
-        this.user_id = 1;
+        this.db = FirebaseFirestore.getInstance();
+        this.storage = FirebaseStorage.getInstance("gs://immobiliaria-e7861.appspot.com/");
+
+        this.user_id = "AD";
         this.list_propietats = new ArrayList<Propietat>();
-        Propietat p1 = new Propietat(0, "User 0", "Carrer A, Vic 21009", "Descripció", "Equipaments", "path imatge", 0, 99, 99999.99);
-        Propietat p2 = new Propietat(1, "User 1", "Carrer A, Vic 21009", "Descripció", "Equipaments", "path imatge", 1, 99, 99999.99);
+
+        this.syncData();
+
+
+        /*Propietat p1 = new Propietat("", "User 0", "Carrer A, Vic 21009", "Descripció", "Equipaments", "path imatge", "", 99, 99999.99);
+        Propietat p2 = new Propietat("", "User 1", "Carrer A, Vic 21009", "Descripció", "Equipaments", "path imatge", "usuari1", 99, 99999.99);
         this.list_propietats.add(p1);
-        this.list_propietats.add(p2);
+        this.list_propietats.add(p2);*/
 
     }
 
@@ -31,7 +62,7 @@ public class Singleton {
 
     public ArrayList<Propietat> getPropietatsByUser(){
         ArrayList<Propietat> propietats_user = new ArrayList<Propietat>();
-        if(this.user_id != -1){
+        if(this.user_id != ""){
             for (Propietat p: this.list_propietats) {
                 if(p.getUser_id() == this.user_id){
                     propietats_user.add(p);
@@ -43,13 +74,75 @@ public class Singleton {
 
     public void addPropietat(Propietat p){
         this.list_propietats.add(p);
+        Map<String, Object> propietat = new HashMap<>();
+
+        propietat.put("nom", p.getNom());
+        propietat.put("ubicacio", p.getUbicacio());
+        propietat.put("descripcio", p.getDescripcio());
+        propietat.put("equipaments", p.getEquipaments());
+        propietat.put("imatge", p.getImatge());
+        propietat.put("user_id", this.user_id);
+        propietat.put("area", p.getArea());
+        propietat.put("preu", p.getPreu());
+
+
+        // Add a new document with a generated ID
+        db.collection("propietats")
+                .add(propietat)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d("Test", "DocumentSnapshot added with ID: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("Test", "Error adding document", e);
+                    }
+                });
     }
 
-    public int getUserId(){
+    public String getUserId(){
         return this.user_id;
     }
 
-    public void updatePropietats(){
-        //Actualitzar la llista amb les noves propietats
+    public FirebaseStorage getStorage(){
+        return this.storage;
+    }
+
+    public void syncData(){
+        db.collection("propietats")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    //private ArrayList<Propietat> list_sync = new ArrayList<Propietat>();
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                //Log.i("Test", document.getId() + " => " + document.getData());
+                                try {
+                                    JSONObject json = new JSONObject(document.getData());
+                                    String nom = json.getString("nom");
+                                    String ubicacio = json.getString("ubicacio");
+                                    String descripcio = json.getString("descripcio");
+                                    String equipaments = json.getString("equipaments");
+                                    String imatge = json.getString("imatge");
+                                    String user = json.getString("user_id");
+                                    int area = json.getInt("area");
+                                    double preu = json.getDouble("preu");
+
+                                    Propietat p = new Propietat(document.getId().toString(), nom, ubicacio, descripcio, equipaments, imatge, user, area, preu);
+                                    Log.i("Test", p.toString());
+                                    //this.list_sync.add(p);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        } else {
+                            Log.i("Test", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
     }
 }

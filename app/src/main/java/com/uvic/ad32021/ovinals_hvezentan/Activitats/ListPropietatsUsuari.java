@@ -17,16 +17,13 @@ import java.util.ArrayList;
 public class ListPropietatsUsuari extends AppCompatActivity {
     ArrayList<Propietat> list_propietats;
     ListView list;
-    int user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_propietats_usuari);
 
-        this.user_id = Singleton.getInstance().getUserId();
-
-        if(user_id == -1){
+        if(Singleton.getInstance().getUserId() == ""){
             Intent i = new Intent(ListPropietatsUsuari.this, MainActivity.class);
             startActivity(i);
             finish();

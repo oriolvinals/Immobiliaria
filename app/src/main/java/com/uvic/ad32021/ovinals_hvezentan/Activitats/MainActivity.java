@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Singleton.getInstance().syncData();
+
         this.list = (ListView)findViewById(R.id.listPropietats);
         this.list_propietats = Singleton.getInstance().getPropietats();
 
@@ -54,9 +56,21 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    /*@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }*/
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.action_login){
+            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(i);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+    }
 }

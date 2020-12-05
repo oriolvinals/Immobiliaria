@@ -24,9 +24,8 @@ public class ListPreferits extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_preferits);
 
-        this.user_id = Singleton.getInstance().getUserId();
-
-        if(user_id == -1){
+        //No user
+        if(Singleton.getInstance().getUserId() == ""){
             Intent i = new Intent(ListPreferits.this, MainActivity.class);
             startActivity(i);
             finish();
