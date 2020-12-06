@@ -101,6 +101,7 @@ public class InfoPropietat extends AppCompatActivity {
         if(id == R.id.action_back){
             Intent i = new Intent(InfoPropietat.this, MainActivity.class);
             startActivity(i);
+            finish();
             return true;
         } else {
             return super.onOptionsItemSelected(item);

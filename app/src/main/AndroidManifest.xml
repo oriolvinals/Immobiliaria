@@ -3,6 +3,7 @@
     package="com.uvic.ad32021.ovinals_hvezentan">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,12 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Activitats.Register"></activity>
+        <activity android:name=".Activitats.Login" />
         <activity android:name=".Activitats.ListPreferits" />
         <activity android:name=".Activitats.ListPropietatsUsuari" />
         <activity android:name=".Activitats.EditPropietat" />
         <activity android:name=".Activitats.InfoPropietat" />
-        <activity android:name=".Activitats.RegisterActivity" />
-        <activity android:name=".Activitats.LoginActivity" />
         <activity android:name=".Activitats.FormPropietat" />
         <activity
             android:name=".Activitats.SplashScreen"

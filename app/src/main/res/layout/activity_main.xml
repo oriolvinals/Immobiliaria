@@ -7,6 +7,19 @@
     tools:context=".Activitats.MainActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/listProps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:onClick="goList"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/addProp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_format_list_bulleted_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addProp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,21 +27,10 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:onClick="goForm"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:clickable="true"
-        android:onClick="goUserPropietats"
-        app:layout_constraintBottom_toTopOf="@+id/addProp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_account_box_24" />
 
     <ListView
         android:id="@+id/listPropietats"
