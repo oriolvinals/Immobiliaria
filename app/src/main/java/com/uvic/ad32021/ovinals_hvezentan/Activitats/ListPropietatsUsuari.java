@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.uvic.ad32021.ovinals_hvezentan.Adaptadors.Adapter_Propietat;
 import com.uvic.ad32021.ovinals_hvezentan.Entitats.Propietat;
@@ -39,6 +40,11 @@ public class ListPropietatsUsuari extends AppCompatActivity {
 
         Adapter_Propietat adapter = new Adapter_Propietat (this, R.layout.adapter_propietat, Singleton.getInstance().getPropietatsByUser());
         this.list.setAdapter(adapter);
+
+        TextView noProps = findViewById(R.id.noProps);
+        if(Singleton.getInstance().getPropietatsByUser().size() == 0){
+            noProps.setText(R.string.empty_user_props);
+        }
 
         this.list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

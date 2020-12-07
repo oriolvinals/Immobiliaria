@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
         Adapter_Propietat adapter = new Adapter_Propietat (this, R.layout.adapter_propietat, this.list_propietats);
         this.list.setAdapter(adapter);
+
+        TextView noProps = findViewById(R.id.noPropsMain);
+        if(this.list_propietats.size() == 0){
+            noProps.setText(R.string.empty_props);
+        }
 
         this.list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

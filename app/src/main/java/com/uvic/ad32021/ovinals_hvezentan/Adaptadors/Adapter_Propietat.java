@@ -43,6 +43,8 @@ public class Adapter_Propietat extends ArrayAdapter<Propietat> {
         TextView preu = (TextView)convertView.findViewById(R.id.propPreu);
 
         ImageView img = (ImageView)convertView.findViewById(R.id.imageView);
+
+
         /*URL newurl = null;
         try {
             newurl = new URL("https://firebasestorage.googleapis.com/v0/b/immobiliaria-e7861.appspot.com/o/" + actual.getImatge() + "?alt=media");

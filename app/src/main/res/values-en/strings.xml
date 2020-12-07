@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Immobiliaria</string>
+    <string name="title_welcome">Welcome</string>
+    <string name="empty_props" translatable="false">Angles</string>
+    <string name="empty_user_props">Angles</string>
+</resources>
