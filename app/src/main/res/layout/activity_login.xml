@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Correu Electronic"
+            android:hint="@string/register_email"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -41,14 +41,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/register_password"
             android:inputType="textPassword" />
 
         <Button
             android:id="@+id/buttonLog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:text="@string/login_name" />
 
         <Space
             android:layout_width="match_parent"
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="toRegister"
-            android:text="Si no tens compte, registrar aqui!"
+            android:text="@string/login_register"
             android:textAlignment="center" />
 
         <ProgressBar

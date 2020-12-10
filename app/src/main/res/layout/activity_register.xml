@@ -34,7 +34,7 @@
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5sp"
             android:ems="10"
-            android:hint="Nom Complet"
+            android:hint="@string/register_fullname"
             android:inputType="textPersonName" />
 
         <EditText
@@ -44,7 +44,7 @@
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5sp"
             android:ems="10"
-            android:hint="Correu Electrònic"
+            android:hint="@string/register_email"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -54,7 +54,7 @@
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5sp"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/register_password"
             android:inputType="textPassword" />
 
         <EditText
@@ -64,14 +64,15 @@
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5sp"
             android:ems="10"
-            android:hint="Telefon"
+            android:hint="@string/register_phone"
             android:inputType="phone" />
 
         <Button
             android:id="@+id/buttonReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="REGISTRAR-SE" />
+            android:hint="@string/register_button"
+            android:text="@string/register_button" />
 
         <Space
             android:layout_width="match_parent"
@@ -82,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="toLogin"
-            android:text="Ja estas registrat? Loguejat aqui"
+            android:text="@string/register_login"
             android:textAlignment="center"
             android:textColor="#A82635"
             android:textSize="18sp" />
