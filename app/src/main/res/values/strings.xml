@@ -25,4 +25,5 @@
     <string name="error_field_required">Camp obligatori</string>
     <string name="register_user_created" translatable="false">Usuari creat correctament</string>
     <string name="register_user_error" translatable="false">Error al crear l\'usuari</string>
+    <string name="register_password_minimum" translatable="false">Minim de 6 caracters</string>
 </resources>
