@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         this.fAuth = FirebaseAuth.getInstance();
 
         if(fAuth.getCurrentUser() != null) {
-            Singleton.getInstance().setUserId(fAuth.getCurrentUser().getEmail());
+            Singleton.getInstance().setUserId(fAuth.getCurrentUser().getUid());
             FloatingActionButton bList = findViewById(R.id.listProps);
             FloatingActionButton bAdd = findViewById(R.id.addProp);
             bList.setVisibility(View.VISIBLE);

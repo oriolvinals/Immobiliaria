@@ -76,22 +76,22 @@ public class InfoPropietat extends AppCompatActivity {
 
                             TextView t_descripcio = (TextView)findViewById(R.id.descProp);
                             t_descripcio.setText(descripcio);
-                            /*
+
                             TextView t_equipaments = (TextView)findViewById(R.id.equipProp);
-                            t_equipaments.setText(nom);
+                            t_equipaments.setText(equipaments);
 
                             TextView t_imatge = (TextView)findViewById(R.id.imgProp);
-                            t_imatge.setText(ubicacio);
-
-                            TextView t_user = (TextView)findViewById(R.id.userProp);
-                            t_user.setText(descripcio);
+                            t_imatge.setText(imatge);
 
                             TextView t_area = (TextView)findViewById(R.id.areaProp);
-                            t_area.setText(descripcio);
+                            t_area.setText(String.valueOf(area));
 
                             TextView t_preu = (TextView)findViewById(R.id.preuProp);
-                            t_preu.setText(descripcio);
-                            */
+                            t_preu.setText(String.valueOf(preu));
+
+                            TextView t_uid = (TextView)findViewById(R.id.textUID);
+                            t_uid.setText("User UID: "+ user);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

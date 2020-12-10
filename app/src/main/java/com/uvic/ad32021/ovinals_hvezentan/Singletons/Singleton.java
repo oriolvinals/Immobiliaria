@@ -45,7 +45,6 @@ public class Singleton {
 
 
         this.storage = FirebaseStorage.getInstance("gs://immobiliaria-e7861.appspot.com/");
-        this.user_id = "AD";
         this.syncData();
     }
 

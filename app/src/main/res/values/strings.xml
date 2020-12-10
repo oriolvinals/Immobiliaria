@@ -23,7 +23,10 @@
     <string name="login_name">Iniciar sessió</string>
     <string name="login_register">Si no tens compte, registrar pitjant aqui!</string>
     <string name="error_field_required">Camp obligatori</string>
-    <string name="register_user_created" translatable="false">Usuari creat correctament</string>
-    <string name="register_user_error" translatable="false">Error al crear l\'usuari</string>
-    <string name="register_password_minimum" translatable="false">Minim de 6 caracters</string>
+    <string name="register_user_created">Usuari creat correctament</string>
+    <string name="register_user_error">Error al crear l\'usuari</string>
+    <string name="register_password_minimum">Minim ha de tenir 6 caracters</string>
+    <string name="login_success">Inici de sessió correctament</string>
+    <string name="login_error">Inici de sessió incorrecte</string>
+    <string name="register_email_sintaxi">Correo electronico incorrecto</string>
 </resources>

@@ -13,6 +13,8 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -107,7 +109,9 @@ public class EditPropietat extends AppCompatActivity {
                         public void onSuccess(Void aVoid) {
                             Log.d("Test", "DocumentSnapshot successfully updated!");
                             Singleton.getInstance().syncData();
-                            final long DELAY = 500;
+                            ProgressBar pb = (ProgressBar)findViewById(R.id.progressBar);
+                            pb.setVisibility(View.VISIBLE);
+                            final long DELAY = 1000;
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
