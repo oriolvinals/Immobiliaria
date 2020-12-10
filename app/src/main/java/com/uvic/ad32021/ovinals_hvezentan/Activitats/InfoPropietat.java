@@ -45,7 +45,7 @@ public class InfoPropietat extends AppCompatActivity {
         }
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        myToolbar.setTitle("Informació de la propietat");
+        myToolbar.setTitle(R.string.detail_property);
         setSupportActionBar(myToolbar);
 
         this.db = Singleton.getInstance().getDB();
@@ -76,6 +76,22 @@ public class InfoPropietat extends AppCompatActivity {
 
                             TextView t_descripcio = (TextView)findViewById(R.id.descProp);
                             t_descripcio.setText(descripcio);
+                            /*
+                            TextView t_equipaments = (TextView)findViewById(R.id.equipProp);
+                            t_equipaments.setText(nom);
+
+                            TextView t_imatge = (TextView)findViewById(R.id.imgProp);
+                            t_imatge.setText(ubicacio);
+
+                            TextView t_user = (TextView)findViewById(R.id.userProp);
+                            t_user.setText(descripcio);
+
+                            TextView t_area = (TextView)findViewById(R.id.areaProp);
+                            t_area.setText(descripcio);
+
+                            TextView t_preu = (TextView)findViewById(R.id.preuProp);
+                            t_preu.setText(descripcio);
+                            */
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

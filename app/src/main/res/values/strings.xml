@@ -3,4 +3,23 @@
     <string name="title_welcome">Benvinguts</string>
     <string name="empty_props">No hi ha propietats actualment</string>
     <string name="empty_user_props">No hi ha propietats propies</string>
+    <string name="property_list">Llista de propietats</string>
+    <string name="detail_property">Propietat en detall</string>
+    <string name="icon_login">Iniciar sessió</string>
+    <string name="icon_register">Registrar-se</string>
+    <string name="icon_logout">Tancar sessió</string>
+    <string name="icon_back">Enrere</string>
+    <string name="icon_save">Guardar</string>
+    <string name="icon_delete">Borrar</string>
+    <string name="property_user_list">Les teves propietats</string>
+    <string name="form">Afegir una propietat</string>
+    <string name="register_name">Registre</string>
+    <string name="register_fullname">Nom Complet</string>
+    <string name="register_email">Correu Electrònic</string>
+    <string name="register_password">Contrasenya</string>
+    <string name="register_phone">Telefon movil</string>
+    <string name="register_login">Ja estas registrat? Loguejat pitjant aqui</string>
+    <string name="register_button">Registrar-se</string>
+    <string name="login_name">Iniciar sessió</string>
+    <string name="login_register">Si no tens compte, registrar pitjant aqui!</string>
 </resources>

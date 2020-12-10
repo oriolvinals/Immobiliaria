@@ -4,4 +4,23 @@
     <string name="title_welcome">Bienvenidos</string>
     <string name="empty_props">Español</string>
     <string name="empty_user_props">Español</string>
+    <string name="property_list">Lista de propiedades</string>
+    <string name="detail_property">Español</string>
+    <string name="icon_login">Inicar sessión</string>
+    <string name="icon_register">Registrarse</string>
+    <string name="icon_logout">Cerrar sessión</string>
+    <string name="icon_back">Atrás</string>
+    <string name="icon_save">Guardar</string>
+    <string name="icon_delete">Borrar</string>
+    <string name="property_user_list">Tus propiedades</string>
+    <string name="form">Añadir una propiedad</string>
+    <string name="register_name">Registro</string>
+    <string name="register_fullname">Nombre Completo</string>
+    <string name="register_email">Correo Electronico</string>
+    <string name="register_password">Contraseña</string>
+    <string name="register_phone">Telefono Mobil</string>
+    <string name="register_login">Ya estas registrado? Logueate pulsando aqui!</string>
+    <string name="login_name">Iniciar sessión</string>
+    <string name="register_button">Registrarse</string>
+    <string name="login_register">Si no tienes cuenta, entra aqui para registrar-te!</string>
 </resources>

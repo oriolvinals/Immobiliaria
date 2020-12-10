@@ -4,4 +4,23 @@
     <string name="title_welcome">Welcome</string>
     <string name="empty_props" translatable="false">Angles</string>
     <string name="empty_user_props">Angles</string>
+    <string name="property_list">Property list</string>
+    <string name="detail_property">Angles</string>
+    <string name="icon_login">Log In</string>
+    <string name="icon_register">Sign In</string>
+    <string name="icon_logout">Log Out</string>
+    <string name="icon_back">Back</string>
+    <string name="icon_save">Save</string>
+    <string name="icon_delete">Delete</string>
+    <string name="property_user_list">Our properties</string>
+    <string name="form">Add property</string>
+    <string name="register_name">Register</string>
+    <string name="register_fullname">Full Name</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Password</string>
+    <string name="register_phone">Phone</string>
+    <string name="register_login">Go to login</string>
+    <string name="register_button">Register</string>
+    <string name="login_name">Log in</string>
+    <string name="login_register">Go to register</string>
 </resources>

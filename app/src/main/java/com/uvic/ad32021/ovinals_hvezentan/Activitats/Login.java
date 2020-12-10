@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        myToolbar.setTitle("Login");
+        myToolbar.setTitle(R.string.login_name);
         setSupportActionBar(myToolbar);
 
         mEmail = findViewById(R.id.mEmail);

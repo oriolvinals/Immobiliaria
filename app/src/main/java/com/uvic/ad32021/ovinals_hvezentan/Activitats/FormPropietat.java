@@ -58,7 +58,7 @@ public class FormPropietat extends AppCompatActivity {
         setContentView(R.layout.activity_form_propietat);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        myToolbar.setTitle("Formulari Propietat");
+        myToolbar.setTitle(R.string.form);
         setSupportActionBar(myToolbar);
 
         this.storage = Singleton.getInstance().getStorage();
@@ -72,7 +72,11 @@ public class FormPropietat extends AppCompatActivity {
 
         //Form
         TextView nom = (TextView)findViewById(R.id.formNom);
-
+        //TextView ubi = (TextView)findViewById(R.id.formUbi);
+        //TextView des = (TextView)findViewById(R.id.formDesc);
+        //TextView equip = (TextView)findViewById(R.id.formEquip);
+        //TextView area = (TextView)findViewById(R.id.formArea);
+        //TextView preu = (TextView)findViewById(R.id.formPreu);
         //Image
         StorageReference storageRef = this.storage.getReference();
         StorageReference imageRef = storageRef.child(imageName);
@@ -92,7 +96,10 @@ public class FormPropietat extends AppCompatActivity {
 
         //Add
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        Propietat p = new Propietat("", nom.getText().toString(), "Carrer A, Vic 21009", "Descripció", "Equipaments", imageName, user_id, 99, 99999.99);
+        Propietat p = new Propietat("", nom.getText().toString(),
+                "Carrer A, Vic 21009", "Descripció",
+                "Equipaments", imageName, user_id,
+                99, 99999.99);
         this.addPropietatToFirebase(p);
     }
 

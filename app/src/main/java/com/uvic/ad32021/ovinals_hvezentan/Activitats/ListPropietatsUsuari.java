@@ -58,7 +58,7 @@ public class ListPropietatsUsuari extends AppCompatActivity {
         });
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        myToolbar.setTitle("Les teves propietats");
+        myToolbar.setTitle(R.string.property_user_list);
         setSupportActionBar(myToolbar);
     }
 

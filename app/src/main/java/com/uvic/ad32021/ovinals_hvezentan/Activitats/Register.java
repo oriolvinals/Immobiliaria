@@ -36,7 +36,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        myToolbar.setTitle("Registre");
+        myToolbar.setTitle(R.string.register_name);
         setSupportActionBar(myToolbar);
 
         mFullName = findViewById(R.id.editName);

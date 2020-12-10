@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        myToolbar.setTitle("Llista de propietats");
+        myToolbar.setTitle(R.string.property_list);
         setSupportActionBar(myToolbar);
     }
 

@@ -6,16 +6,16 @@
     <item
         android:id="@+id/action_back"
         android:icon="@drawable/ic_baseline_keyboard_backspace_24"
-        android:title="Back"
+        android:title="@string/icon_back"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_save"
         android:icon="@drawable/ic_baseline_save_24"
-        android:title="Guardar"
+        android:title="@string/icon_save"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_delete"
         android:icon="@drawable/ic_baseline_delete_24"
-        android:title="Borrar"
+        android:title="@string/icon_delete"
         app:showAsAction="ifRoom" />
 </menu>

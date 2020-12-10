@@ -6,6 +6,6 @@
     <item
         android:id="@+id/action_back"
         android:icon="@drawable/ic_baseline_keyboard_backspace_24"
-        android:title="Back"
+        android:title="@string/icon_back"
         app:showAsAction="ifRoom" />
 </menu>
