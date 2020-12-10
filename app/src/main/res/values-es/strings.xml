@@ -23,4 +23,5 @@
     <string name="login_name">Iniciar sessión</string>
     <string name="register_button">Registrarse</string>
     <string name="login_register">Si no tienes cuenta, entra aqui para registrar-te!</string>
+    <string name="error_field_required">Campo obligatorio</string>
 </resources>

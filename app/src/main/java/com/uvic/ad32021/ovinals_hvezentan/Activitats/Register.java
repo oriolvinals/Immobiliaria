@@ -60,13 +60,20 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
+                String fullname = mFullName.getText().toString().trim();
 
-                if(TextUtils.isEmpty(email)){
-                    mEmail.setError("Email is required");
+                if(TextUtils.isEmpty(fullname)){
+                    mFullName.setError(String.valueOf(R.string.error_field_required));
                     return;
                 }
+
+                if(TextUtils.isEmpty(email)){
+                    mEmail.setError(String.valueOf(R.string.error_field_required));
+                    return;
+                }
+
                 if(TextUtils.isEmpty(password)){
-                    mPassword.setError("Password is required");
+                    mPassword.setError(String.valueOf(R.string.error_field_required));
                     return;
                 }
 
@@ -81,12 +88,12 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(Register.this, "User Created", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, R.string.register_user_created, Toast.LENGTH_SHORT).show();
                             Intent i =  new Intent(Register.this, MainActivity.class);
                             startActivity(i);
                             finish();
                         } else {
-                            Toast.makeText(Register.this, "Error to create account", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, R.string.register_user_error, Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.INVISIBLE);
                         }
                     }

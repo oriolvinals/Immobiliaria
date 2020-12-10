@@ -22,4 +22,7 @@
     <string name="register_button">Registrar-se</string>
     <string name="login_name">Iniciar sessió</string>
     <string name="login_register">Si no tens compte, registrar pitjant aqui!</string>
+    <string name="error_field_required">Camp obligatori</string>
+    <string name="register_user_created" translatable="false">Usuari creat correctament</string>
+    <string name="register_user_error" translatable="false">Error al crear l\'usuari</string>
 </resources>
