@@ -78,7 +78,7 @@ public class Register extends AppCompatActivity {
                 }
 
                 if(password.length() < 6){
-                    mPassword.setError("Password must be more than 6 characters");
+                    mPassword.setError(String.valueOf(R.string.register_password_minimum));
                     return;
                 }
 
