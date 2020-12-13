@@ -5,17 +5,17 @@
 
     <item
         android:id="@+id/action_register"
-        android:icon="@drawable/ic_baseline_contact_mail_24"
+        android:icon="@drawable/ic_baseline_person_add_24"
         android:title="@string/icon_register"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_login"
-        android:icon="@drawable/ic_baseline_account_box_24"
+        android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/icon_login"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_logout"
-        android:icon="@drawable/ic_baseline_account_box_24"
+        android:icon="@drawable/ic_baseline_person_pin_24"
         android:title="@string/icon_logout"
         android:visible="false"
         app:showAsAction="ifRoom" />

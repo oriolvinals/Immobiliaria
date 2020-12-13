@@ -13,10 +13,12 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 import com.uvic.ad32021.ovinals_hvezentan.Entitats.Propietat;
 import com.uvic.ad32021.ovinals_hvezentan.R;
 import com.uvic.ad32021.ovinals_hvezentan.Singletons.Singleton;
@@ -29,11 +31,14 @@ import java.util.ArrayList;
 public class InfoPropietat extends AppCompatActivity {
     String id;
     FirebaseFirestore db;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_propietat);
+
+        this.fAuth = FirebaseAuth.getInstance();
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -52,6 +57,8 @@ public class InfoPropietat extends AppCompatActivity {
 
         DocumentReference docRef = this.db.collection("propietats").document(id);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            private FirebaseFirestore db;
+
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -89,9 +96,44 @@ public class InfoPropietat extends AppCompatActivity {
                             TextView t_preu = (TextView)findViewById(R.id.preuProp);
                             t_preu.setText(String.valueOf(preu));
 
-                            TextView t_uid = (TextView)findViewById(R.id.textUID);
-                            t_uid.setText("User UID: "+ user);
+                            TextView uuid = (TextView)findViewById(R.id.uuid);
+                            uuid.setText(user);
 
+                            FirebaseFirestore db = Singleton.getInstance().getDB();
+                            DocumentReference docRef2 = db.collection("users").document(user);
+                            docRef2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot document = task.getResult();
+                                        if (document.exists()) {
+                                            try {
+                                                JSONObject json = new JSONObject(document.getData());
+                                                String nom = json.getString("fName");
+                                                String email = json.getString("email");
+                                                String phone = json.getString("phone");
+
+                                                TextView t_nomp = (TextView)findViewById(R.id.nompProp);
+                                                t_nomp.setText(nom);
+
+                                                TextView t_email = (TextView)findViewById(R.id.emailProp);
+                                                t_email.setText(email);
+
+                                                TextView t_phone = (TextView)findViewById(R.id.phoneProp);
+                                                t_phone.setText(phone);
+
+
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        } else {
+                                            Log.d("Test", "No such document");
+                                        }
+                                    } else {
+                                        Log.d("Test", "get failed with ", task.getException());
+                                    }
+                                }
+                            });
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Immobiliaria Cloud</string>
+    <string name="app_name">Immobiliaria Cloud</string>
     <string name="title_welcome">Benvinguts...</string>
     <string name="empty_props">No hi ha propietats actualment</string>
     <string name="empty_user_props">No hi ha propietats propies</string>
@@ -40,4 +40,5 @@
     <string name="form_error">Error al enviar el formulari</string>
     <string name="form_success">El formulari s\'ha enviat correctament</string>
     <string name="form_photo">Puja una fotografia</string>
+    <string name="propietari">Dades del propietari</string>
 </resources>

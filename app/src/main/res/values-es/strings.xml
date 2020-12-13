@@ -41,4 +41,5 @@
     <string name="form_error">Error al enviar el formulario</string>
     <string name="form_success">El formulario se ha enviado correctamente</string>
     <string name="form_photo">Sube una fotografia</string>
+    <string name="propietari">Datos del propietario</string>
 </resources>
