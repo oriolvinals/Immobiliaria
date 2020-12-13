@@ -15,7 +15,7 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_logout"
-        android:icon="@drawable/ic_baseline_indeterminate_check_box_24"
+        android:icon="@drawable/ic_baseline_account_box_24"
         android:title="@string/icon_logout"
         android:visible="false"
         app:showAsAction="ifRoom" />

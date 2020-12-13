@@ -31,4 +31,5 @@
     <string name="login_error">Log in error</string>
     <string name="register_email_sintaxi">Email incorrect</string>
     <string name="user_info">User info</string>
+    <string name="error_save_user">Error</string>
 </resources>

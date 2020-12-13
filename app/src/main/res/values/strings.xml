@@ -30,4 +30,5 @@
     <string name="login_error">Inici de sessió incorrecte</string>
     <string name="register_email_sintaxi">Correo electronico incorrecto</string>
     <string name="user_info">Perfil del usuari</string>
+    <string name="error_save_user">Error al guardar l\'usuari</string>
 </resources>
