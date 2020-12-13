@@ -31,4 +31,13 @@
     <string name="register_email_sintaxi">Correo electronico incorrecto</string>
     <string name="user_info">Perfil del usuari</string>
     <string name="error_save_user">Error al guardar l\'usuari</string>
+    <string name="form_name" translatable="false">Nom</string>
+    <string name="form_ubi" translatable="false">Ubicació</string>
+    <string name="form_desc" translatable="false">Descripció</string>
+    <string name="form_area" translatable="false">Area</string>
+    <string name="form_preu" translatable="false">Preu</string>
+    <string name="form_equipaments" translatable="false">Equipaments</string>
+    <string name="form_error" translatable="false">Error al enviar el formulari</string>
+    <string name="form_success" translatable="false">El formulari s\'ha enviat correctament</string>
+    <string name="form_photo" translatable="false">Puja una fotografia</string>
 </resources>

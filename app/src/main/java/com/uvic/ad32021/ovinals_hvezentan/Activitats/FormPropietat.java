@@ -14,12 +14,15 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -51,6 +54,7 @@ public class FormPropietat extends AppCompatActivity {
     private static final int RESULT_LOAD_GALERY_IMAGE = 200;
     private static final int PERMISSION_REQUEST_READ_STORAGE = 2;
     private byte[] data;
+    boolean photoUp = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,41 +70,85 @@ public class FormPropietat extends AppCompatActivity {
         this.img = (ImageView)findViewById(R.id.imageView);
     }
 
-    public void addPropietat(View view){
+    public void addPropietat(View view) {
         String user_id = Singleton.getInstance().getUserId();
         String imageName = randomNameImage() + ".jpg";
 
         //Form
-        TextView nom = (TextView)findViewById(R.id.formNom);
-        //TextView ubi = (TextView)findViewById(R.id.formUbi);
-        //TextView des = (TextView)findViewById(R.id.formDesc);
-        //TextView equip = (TextView)findViewById(R.id.formEquip);
-        //TextView area = (TextView)findViewById(R.id.formArea);
-        //TextView preu = (TextView)findViewById(R.id.formPreu);
-        //Image
-        StorageReference storageRef = this.storage.getReference();
-        StorageReference imageRef = storageRef.child(imageName);
-        UploadTask uploadTask = imageRef.putBytes(this.data);
-        uploadTask.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle unsuccessful uploads
-            }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
-                // ...
-            }
-        });
+        TextView nom = (TextView) findViewById(R.id.formNom);
+        TextView ubi = (TextView) findViewById(R.id.formUbi);
+        TextView des = (TextView) findViewById(R.id.formDesc);
+        TextView equip = (TextView) findViewById(R.id.formEquip);
+        TextView area = (TextView) findViewById(R.id.formArea);
+        TextView preu = (TextView) findViewById(R.id.formPreu);
 
-        //Add
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        Propietat p = new Propietat("", nom.getText().toString(),
-                "Carrer A, Vic 21009", "Descripció",
-                "Equipaments", imageName, user_id,
-                99, 99999.99);
-        this.addPropietatToFirebase(p);
+
+
+
+        int errors = 0;
+
+        if(TextUtils.isEmpty(nom.getText().toString().trim())){
+            nom.setError(view.getResources().getString(R.string.error_field_required));
+            errors++;
+        }
+
+        if(TextUtils.isEmpty(ubi.getText().toString().trim())){
+            ubi.setError(view.getResources().getString(R.string.error_field_required));
+            errors++;
+        }
+
+        if(TextUtils.isEmpty(des.getText().toString().trim())){
+            des.setError(view.getResources().getString(R.string.error_field_required));
+            errors++;
+        }
+
+        if(TextUtils.isEmpty(equip.getText().toString().trim())){
+            equip.setError(view.getResources().getString(R.string.error_field_required));
+            errors++;
+        }
+
+        if(TextUtils.isEmpty(area.getText().toString().trim())){
+            area.setError(view.getResources().getString(R.string.error_field_required));
+            errors++;
+        }
+
+        if(TextUtils.isEmpty(preu.getText().toString().trim())){
+            preu.setError(view.getResources().getString(R.string.error_field_required));
+            errors++;
+        }
+
+        if(!photoUp){
+            Toast.makeText(FormPropietat.this, R.string.form_photo, Toast.LENGTH_SHORT).show();
+            errors++;
+        }
+
+        if(errors == 0){
+            ProgressBar progressBar = findViewById(R.id.progressBar);
+            progressBar.setVisibility(View.VISIBLE);
+
+            //Image
+            StorageReference storageRef = this.storage.getReference();
+            StorageReference imageRef = storageRef.child(imageName);
+            UploadTask uploadTask = imageRef.putBytes(this.data);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                }
+            });
+            //Add
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            Propietat p = new Propietat("", nom.getText().toString(),
+                    ubi.getText().toString(), des.getText().toString(),
+                    equip.getText().toString(), imageName, user_id,
+                    Integer.parseInt(area.getText().toString()), Double.parseDouble(preu.getText().toString()));
+            this.addPropietatToFirebase(p);
+        }
     }
 
     public void onGallery(View view){
@@ -134,6 +182,7 @@ public class FormPropietat extends AppCompatActivity {
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                     this.data = baos.toByteArray();
+                    photoUp = true;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -148,8 +197,6 @@ public class FormPropietat extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
         if(requestCode == RESULT_LOAD_GALERY_IMAGE){
             if(grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 this.accessGallery();
@@ -186,7 +233,7 @@ public class FormPropietat extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Log.d("Test", "DocumentSnapshot added with ID: " + documentReference.getId());
+                        Toast.makeText(FormPropietat.this, R.string.form_success, Toast.LENGTH_SHORT).show();
                         p.setId(documentReference.getId());
                         Singleton.getInstance().addPropietatToList(p);
                         Intent i = new Intent(FormPropietat.this, MainActivity.class);
@@ -197,7 +244,7 @@ public class FormPropietat extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("Test", "Error adding document", e);
+                        Toast.makeText(FormPropietat.this, R.string.form_error, Toast.LENGTH_SHORT).show();
                     }
                 });
     }
