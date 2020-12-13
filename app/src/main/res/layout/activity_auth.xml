@@ -5,6 +5,7 @@
     android:id="@+id/cLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
     tools:context=".Activitats.Auth">
 
     <androidx.appcompat.widget.Toolbar
@@ -33,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="@font/roboto_regular"
             android:hint="Email"
             android:inputType="textEmailAddress" />
 
@@ -49,6 +51,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:ems="10"
+            android:fontFamily="@font/roboto_regular"
             android:hint="Contraseña"
             android:inputType="textPassword" />
 
@@ -67,6 +70,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/colorBlue"
+                android:fontFamily="@font/roboto_bold"
                 android:onClick="signUp"
                 android:text="Registrar" />
 
@@ -80,6 +85,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/colorBlue"
+                android:fontFamily="@font/roboto_regular"
                 android:text="Login" />
 
             <Space

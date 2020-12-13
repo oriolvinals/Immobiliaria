@@ -34,6 +34,7 @@
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5sp"
             android:ems="10"
+            android:fontFamily="@font/roboto_regular"
             android:hint="@string/register_fullname"
             android:inputType="textPersonName" />
 
@@ -44,6 +45,7 @@
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5sp"
             android:ems="10"
+            android:fontFamily="@font/roboto_regular"
             android:hint="@string/register_email"
             android:inputType="textEmailAddress" />
 
@@ -54,6 +56,7 @@
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5sp"
             android:ems="10"
+            android:fontFamily="@font/roboto_regular"
             android:hint="@string/register_password"
             android:inputType="textPassword" />
 
@@ -64,6 +67,7 @@
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5sp"
             android:ems="10"
+            android:fontFamily="@font/roboto_regular"
             android:hint="@string/register_phone"
             android:inputType="phone" />
 
@@ -71,6 +75,8 @@
             android:id="@+id/buttonReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorBlue"
+            android:fontFamily="@font/roboto_bold"
             android:hint="@string/register_button"
             android:text="@string/register_button" />
 
@@ -82,6 +88,7 @@
             android:id="@+id/textLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
             android:onClick="toLogin"
             android:text="@string/register_login"
             android:textAlignment="center"

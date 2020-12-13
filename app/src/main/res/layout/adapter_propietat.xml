@@ -22,9 +22,11 @@
         android:id="@+id/propNom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="TextView"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,8 +34,9 @@
         android:id="@+id/propUbi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_regular"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/propNom" />
@@ -42,9 +45,11 @@
         android:id="@+id/propPreu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/roboto_medium"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/propUbi" />
 </androidx.constraintlayout.widget.ConstraintLayout>

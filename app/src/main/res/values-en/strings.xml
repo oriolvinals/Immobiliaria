@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Immobiliaria</string>
-    <string name="title_welcome">Welcome</string>
+    <string name="app_name">Immobiliaria Cloud</string>
+    <string name="title_welcome">Welcome...</string>
     <string name="empty_props" translatable="false">There are currently no properties</string>
     <string name="empty_user_props">No own properties</string>
     <string name="property_list">Property list</string>
