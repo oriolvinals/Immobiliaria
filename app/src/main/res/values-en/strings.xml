@@ -32,4 +32,13 @@
     <string name="register_email_sintaxi">Email incorrect</string>
     <string name="user_info">User info</string>
     <string name="error_save_user">Error</string>
+    <string name="form_name" translatable="false">Name</string>
+    <string name="form_ubi">Location</string>
+    <string name="form_desc">Description</string>
+    <string name="form_area">Area</string>
+    <string name="form_preu">Price</string>
+    <string name="form_equipaments">Equipments</string>
+    <string name="form_error">Error submitting form</string>
+    <string name="form_success">The form has been submitted successfully</string>
+    <string name="form_photo">Upload a photo</string>
 </resources>
