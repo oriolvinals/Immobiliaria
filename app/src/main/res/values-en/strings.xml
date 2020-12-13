@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Immobiliaria</string>
     <string name="title_welcome">Welcome</string>
-    <string name="empty_props" translatable="false">No items</string>
-    <string name="empty_user_props">No items</string>
+    <string name="empty_props" translatable="false">There are currently no properties</string>
+    <string name="empty_user_props">No own properties</string>
     <string name="property_list">Property list</string>
     <string name="detail_property">Angles</string>
     <string name="icon_login">Log In</string>
@@ -30,4 +30,5 @@
     <string name="login_success">Log in successfully</string>
     <string name="login_error">Log in error</string>
     <string name="register_email_sintaxi">Email incorrect</string>
+    <string name="user_info">User info</string>
 </resources>

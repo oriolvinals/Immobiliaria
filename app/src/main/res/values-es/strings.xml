@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Immobiliaria</string>
     <string name="title_welcome">Bienvenidos</string>
-    <string name="empty_props">No items</string>
-    <string name="empty_user_props">No items</string>
+    <string name="empty_props">No hay propiedades actualmente</string>
+    <string name="empty_user_props">No hay propiedades propias</string>
     <string name="property_list">Lista de propiedades</string>
     <string name="detail_property">Español</string>
     <string name="icon_login">Inicar sessión</string>
@@ -30,4 +30,5 @@
     <string name="login_success">Inicio de session correctamente</string>
     <string name="login_error">Inicio de session incorrecto</string>
     <string name="register_email_sintaxi">Correo electronico incorrecto</string>
+    <string name="user_info">Perfil del usuario</string>
 </resources>

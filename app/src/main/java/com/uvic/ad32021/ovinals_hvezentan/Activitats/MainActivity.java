@@ -108,9 +108,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
             return true;
         } else if(id == R.id.action_logout){
-            FirebaseAuth.getInstance().signOut();
-            Singleton.getInstance().setUserId("");
-            Intent i = new Intent(MainActivity.this, MainActivity.class);
+            Intent i = new Intent(MainActivity.this, UserInfo.class);
             startActivity(i);
             finish();
             return true;
