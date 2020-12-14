@@ -33,6 +33,7 @@
             android:id="@+id/mEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:ems="10"
             android:fontFamily="@font/roboto_regular"
             android:hint="@string/register_email"
@@ -42,6 +43,7 @@
             android:id="@+id/mPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:ems="10"
             android:fontFamily="@font/roboto_regular"
             android:hint="@string/register_password"
@@ -51,6 +53,9 @@
             android:id="@+id/buttonLog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="112dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginRight="112dp"
             android:background="@color/colorBlue"
             android:fontFamily="@font/roboto_bold"
             android:text="@string/login_name" />
@@ -66,7 +71,8 @@
             android:fontFamily="@font/roboto_regular"
             android:onClick="toRegister"
             android:text="@string/login_register"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="#A82635" />
 
         <ProgressBar
             android:id="@+id/progressBar"
