@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:scrollbars="vertical"
     tools:context=".Activitats.FormPropietat">
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -15,121 +14,153 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorLight"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@color/colorWhite" />
+
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <LinearLayout
+        <TableLayout
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="310dp"
+            android:layout_height="match_parent"
+            android:stretchColumns="1">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorBlue"
-                android:fontFamily="@font/roboto_bold"
-                android:onClick="addPropietat"
-                android:text="Enviar" />
-
-            <EditText
-                android:id="@+id/formNom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:layout_marginEnd="10sp"
-                android:ems="10"
-                android:fontFamily="@font/roboto_regular"
-                android:hint="@string/form_name"
-                android:inputType="textPersonName" />
-
-            <EditText
-                android:id="@+id/formUbi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:layout_marginEnd="10sp"
-                android:ems="10"
-                android:fontFamily="@font/roboto_regular"
-                android:hint="@string/form_ubi"
-                android:inputType="textPersonName" />
-
-            <EditText
-                android:id="@+id/formArea"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:layout_marginEnd="10sp"
-                android:ems="10"
-                android:fontFamily="@font/roboto_regular"
-                android:hint="@string/form_area"
-                android:inputType="number" />
-
-            <EditText
-                android:id="@+id/formPreu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:layout_marginEnd="10sp"
-                android:ems="10"
-                android:fontFamily="@font/roboto_regular"
-                android:hint="@string/form_preu"
-                android:inputType="numberDecimal" />
-
-            <EditText
-                android:id="@+id/formDesc"
-                android:layout_width="match_parent"
-                android:layout_height="119dp"
-                android:layout_marginTop="10sp"
-                android:layout_marginEnd="10sp"
-                android:ems="10"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="start|top"
-                android:hint="@string/form_desc"
-                android:inputType="textMultiLine" />
-
-            <EditText
-                android:id="@+id/formEquip"
-                android:layout_width="match_parent"
-                android:layout_height="119dp"
-                android:layout_marginTop="10sp"
-                android:layout_marginEnd="10sp"
-                android:ems="10"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="start|top"
-                android:hint="@string/form_equipaments"
-                android:inputType="textMultiLine" />
-
+                android:background="@color/colorLight"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleTextColor="@color/colorWhite" />
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:onClick="onGallery"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/formEquip"
                 app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
 
-        </LinearLayout>
+            <EditText
+                android:id="@+id/formUbi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/form_ubi"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/formNom" />
+
+            <EditText
+                android:id="@+id/formPreu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/form_preu"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/formArea" />
+
+            <EditText
+                android:id="@+id/formArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/form_area"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/formUbi" />
+
+            <EditText
+                android:id="@+id/formNom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/form_name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+                app:layout_constraintStart_toStartOf="@+id/formDesc"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <EditText
+                android:id="@+id/formEquip"
+                android:layout_width="match_parent"
+                android:layout_height="119dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="start|top"
+                android:hint="@string/form_equipaments"
+                android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/formDesc" />
+
+            <EditText
+                android:id="@+id/formDesc"
+                android:layout_width="match_parent"
+                android:layout_height="119dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="start|top"
+                android:hint="@string/form_desc"
+                android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/formPreu" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="128dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="128dp"
+                android:layout_marginBottom="32dp"
+                android:background="@color/colorBlue"
+                android:fontFamily="@font/roboto_bold"
+                android:onClick="addPropietat"
+                android:text="Enviar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <!-- everything you already have -->
+
+        </TableLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
