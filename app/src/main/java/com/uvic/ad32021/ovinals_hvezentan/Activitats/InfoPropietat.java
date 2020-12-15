@@ -91,10 +91,10 @@ public class InfoPropietat extends AppCompatActivity {
                             t_imatge.setText(imatge);
 
                             TextView t_area = (TextView)findViewById(R.id.areaProp);
-                            t_area.setText(String.valueOf(area));
+                            t_area.setText(String.valueOf(area) +" m²");
 
                             TextView t_preu = (TextView)findViewById(R.id.preuProp);
-                            t_preu.setText(String.valueOf(preu));
+                            t_preu.setText(String.valueOf(preu) +" €");
 
                             TextView uuid = (TextView)findViewById(R.id.uuid);
                             uuid.setText(user);
