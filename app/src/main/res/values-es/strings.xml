@@ -43,4 +43,9 @@
     <string name="form_photo">Sube una fotografia</string>
     <string name="propietari">Datos del propietario</string>
     <string name="edit_propietat">Editar Propiedad</string>
+    <string name="qr">Generador QR</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_yes">Si</string>
+    <string name="dialog_message_edit">Seguro que quieres eliminar la propiedad?</string>
+    <string name="dialog_delete_title">Eliminar</string>
 </resources>

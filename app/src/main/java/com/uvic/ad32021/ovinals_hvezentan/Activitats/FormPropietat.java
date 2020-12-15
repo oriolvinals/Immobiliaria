@@ -82,9 +82,6 @@ public class FormPropietat extends AppCompatActivity {
         TextView area = (TextView) findViewById(R.id.formArea);
         TextView preu = (TextView) findViewById(R.id.formPreu);
 
-
-
-
         int errors = 0;
 
         if(TextUtils.isEmpty(nom.getText().toString().trim())){

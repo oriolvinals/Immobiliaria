@@ -1,11 +1,21 @@
 package com.uvic.ad32021.ovinals_hvezentan.Activitats;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,22 +26,37 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.zxing.Result;
 import com.uvic.ad32021.ovinals_hvezentan.Adaptadors.Adapter_Propietat;
 import com.uvic.ad32021.ovinals_hvezentan.Entitats.Propietat;
 import com.uvic.ad32021.ovinals_hvezentan.R;
 import com.uvic.ad32021.ovinals_hvezentan.Singletons.Singleton;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+import me.dm7.barcodescanner.zxing.ZXingScannerView;
+
+public class MainActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler{
     ArrayList<Propietat> list_propietats;
     ListView list;
     FirebaseAuth fAuth;
+
+    private static final int RESULT_CAMERA_IMAGE = 100;
+    private static final int PERMISSION_REQUEST_CAMERA = 1;
+
+    private ZXingScannerView mScannerView;
+    private boolean cameraOn;
+    private ConstraintLayout contentFrame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.contentFrame = findViewById(R.id.layoutMain);
+        this.mScannerView = new ZXingScannerView(this);
+        this.cameraOn = false;
 
         this.fAuth = FirebaseAuth.getInstance();
 
@@ -116,4 +141,81 @@ public class MainActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     }
+
+    public void captureQR(View view){
+        Log.i("AD_C11", "captureQR");
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                MainActivity.this.startCamera();
+            } else {
+                this.requestPermissions(new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CAMERA) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                this.camera();
+        }
+    }
+
+    public void startCamera() {
+        Log.i("Test", "startCamera");
+        contentFrame.addView(mScannerView);
+        mScannerView.setResultHandler(this);
+        mScannerView.startCamera();
+        cameraOn = true;
+    }
+    public void stopCamera() {
+        Log.i("Test", "stopCamera");
+        mScannerView.stopCamera();
+        contentFrame.removeView(mScannerView);
+        cameraOn = false;
+    }
+
+    @Override
+    public void handleResult(Result rawResult) {
+        Log.i("Test", "handleResult");
+        if (rawResult != null) {
+            Intent i = new Intent(MainActivity.this, InfoPropietat.class);
+            i.putExtra("id", rawResult.getText().toString());
+            startActivity(i);
+        }
+        stopCamera();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.i("Test", "onBackPressed");
+        if (cameraOn) {
+            stopCamera();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        Log.i("Test", "onPause");
+        if (cameraOn) {
+            stopCamera();
+        }
+        super.onPause();
+    }
+
+    public void camera(){
+        Log.i("Test", "Camera function");
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(i, RESULT_CAMERA_IMAGE);
+            }
+        } else  {
+            this.requestPermissions(new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
+        }
+    }
+
 }
