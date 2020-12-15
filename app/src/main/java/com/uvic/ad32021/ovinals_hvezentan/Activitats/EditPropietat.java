@@ -45,7 +45,7 @@ public class EditPropietat extends AppCompatActivity {
     String id;
     Propietat p;
     TextView t_nom, t_ubi, t_desc, t_area, t_preu, t_equip;
-    private String savePath = Environment.getExternalStorageDirectory().getPath();
+    private String savePath = Environment.getExternalStorageDirectory().getPath() +"/0" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class EditPropietat extends AppCompatActivity {
         }
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        myToolbar.setTitle("Editar la propietat");
+        myToolbar.setTitle(R.string.edit_propietat);
         setSupportActionBar(myToolbar);
 
         this.t_nom = (TextView)findViewById(R.id.editName);
@@ -215,10 +215,10 @@ public class EditPropietat extends AppCompatActivity {
             QRGEncoder qrgEncoder = new QRGEncoder(qr_id, null, QRGContents.Type.TEXT, 100);
             qrgEncoder.setColorBlack(Color.RED);
             qrgEncoder.setColorWhite(Color.BLUE);
-            // Getting QR-Code as Bitmap
+
             Bitmap bitmap = qrgEncoder.getBitmap();
             QRGSaver qrgSaver = new QRGSaver();
-            qrgSaver.save("/", qr_id, bitmap, QRGContents.ImageType.IMAGE_JPEG);
+            qrgSaver.save(savePath, qr_id.trim(), bitmap, QRGContents.ImageType.IMAGE_JPEG);
             return true;
         } else {
             return super.onOptionsItemSelected(item);

@@ -143,7 +143,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     }
 
     public void captureQR(View view){
-        Log.i("AD_C11", "captureQR");
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                 MainActivity.this.startCamera();
@@ -155,7 +154,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_REQUEST_CAMERA) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 this.camera();
@@ -163,14 +161,12 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     }
 
     public void startCamera() {
-        Log.i("Test", "startCamera");
         contentFrame.addView(mScannerView);
         mScannerView.setResultHandler(this);
         mScannerView.startCamera();
         cameraOn = true;
     }
     public void stopCamera() {
-        Log.i("Test", "stopCamera");
         mScannerView.stopCamera();
         contentFrame.removeView(mScannerView);
         cameraOn = false;
@@ -178,7 +174,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     @Override
     public void handleResult(Result rawResult) {
-        Log.i("Test", "handleResult");
         if (rawResult != null) {
             Intent i = new Intent(MainActivity.this, InfoPropietat.class);
             i.putExtra("id", rawResult.getText().toString());
@@ -189,7 +184,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     @Override
     public void onBackPressed() {
-        Log.i("Test", "onBackPressed");
         if (cameraOn) {
             stopCamera();
         } else {
@@ -199,7 +193,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     @Override
     protected void onPause() {
-        Log.i("Test", "onPause");
         if (cameraOn) {
             stopCamera();
         }
@@ -207,7 +200,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     }
 
     public void camera(){
-        Log.i("Test", "Camera function");
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                 Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
