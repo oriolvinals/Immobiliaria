@@ -42,4 +42,5 @@
     <string name="form_success">The form has been submitted successfully</string>
     <string name="form_photo">Upload a photo</string>
     <string name="propietari">Owner data</string>
+    <string name="edit_propietat">Edit Property</string>
 </resources>

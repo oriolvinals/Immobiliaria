@@ -42,4 +42,5 @@
     <string name="form_success">El formulario se ha enviado correctamente</string>
     <string name="form_photo">Sube una fotografia</string>
     <string name="propietari">Datos del propietario</string>
+    <string name="edit_propietat">Editar Propiedad</string>
 </resources>

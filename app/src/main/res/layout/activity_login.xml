@@ -72,7 +72,8 @@
             android:onClick="toRegister"
             android:text="@string/login_register"
             android:textAlignment="center"
-            android:textColor="#A82635" />
+            android:textColor="#A82635"
+            android:textSize="18sp"/>
 
         <ProgressBar
             android:id="@+id/progressBar"
