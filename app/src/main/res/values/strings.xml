@@ -47,4 +47,5 @@
     <string name="dialog_yes">Si</string>
     <string name="dialog_no">No</string>
     <string name="dialog_delete_title">Eliminar</string>
+    <string name="copy">Correu electronic copiat correctament</string>
 </resources>

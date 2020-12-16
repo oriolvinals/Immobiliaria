@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -20,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -202,6 +206,10 @@ public class InfoPropietat extends AppCompatActivity {
     }
 
     public void onMail(View view){
-
+        TextView t_email = (TextView)findViewById(R.id.emailProp);
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("label", t_email.getText().toString());
+        clipboard.setPrimaryClip(clip);
+        Toast.makeText(InfoPropietat.this, R.string.copy, Toast.LENGTH_SHORT).show();
     }
 }

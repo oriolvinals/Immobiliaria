@@ -48,4 +48,5 @@
     <string name="dialog_yes">Yes</string>
     <string name="dialog_message_edit">Are you sure you want to delete the property?</string>
     <string name="dialog_delete_title">Delete</string>
+    <string name="copy">Email copied correctly</string>
 </resources>

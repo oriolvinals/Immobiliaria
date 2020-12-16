@@ -178,7 +178,7 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:onClick="onMail"
-        app:backgroundTint="@color/colorLight"
+        app:backgroundTint="@color/colorDark"
         app:layout_constraintBottom_toTopOf="@+id/trucar"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_dialog_email" />
