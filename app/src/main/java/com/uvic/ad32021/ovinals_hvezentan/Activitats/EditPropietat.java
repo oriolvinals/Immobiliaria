@@ -50,6 +50,8 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -85,6 +87,9 @@ public class EditPropietat extends AppCompatActivity {
             startActivity(i);
             finish();
         }
+
+        ActivityCompat.requestPermissions(EditPropietat.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+        ActivityCompat.requestPermissions(EditPropietat.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         myToolbar.setTitle(R.string.edit_propietat);
@@ -260,14 +265,39 @@ public class EditPropietat extends AppCompatActivity {
             qrgEncoder.setColorWhite(Color.BLUE);
 
             Bitmap bitmap = qrgEncoder.getBitmap();
-            QRGSaver qrgSaver = new QRGSaver();
+
+            FileOutputStream outputStream = null;
+            File file = Environment.getExternalStorageDirectory();
+            File dir = new File(file.getAbsolutePath());
+            dir.mkdirs();
+
+            String filename = String.format("%d.png",System.currentTimeMillis());
+            File outFile = new File(dir,filename);
+            try{
+                outputStream = new FileOutputStream(outFile);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            bitmap.compress(Bitmap.CompressFormat.PNG,100,outputStream);
+            try{
+                outputStream.flush();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            try{
+                outputStream.close();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            /*QRGSaver qrgSaver = new QRGSaver();
 
             int check = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
             if (check == PackageManager.PERMISSION_GRANTED) {
                 qrgSaver.save(savePath, qr_id.trim(), bitmap, QRGContents.ImageType.IMAGE_JPEG);
             } else {
                 requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1024);
-            }
+            }*/
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -331,5 +361,4 @@ public class EditPropietat extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
 }

@@ -12,5 +12,6 @@
         android:id="@+id/action_qr_generator"
         android:icon="@drawable/ic_baseline_border_clear_24"
         android:title="@string/qr"
+        android:visible="false"
         app:showAsAction="ifRoom" />
 </menu>
