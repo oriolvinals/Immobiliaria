@@ -12,7 +12,7 @@
     <string name="icon_back">Back</string>
     <string name="icon_save">Save</string>
     <string name="icon_delete">Delete</string>
-    <string name="property_user_list">Our properties</string>
+    <string name="property_user_list">My properties</string>
     <string name="form">Add property</string>
     <string name="register_name">Register</string>
     <string name="register_fullname">Full Name</string>
@@ -49,4 +49,5 @@
     <string name="dialog_message_edit">Are you sure you want to delete the property?</string>
     <string name="dialog_delete_title">Delete</string>
     <string name="copy">Email copied correctly</string>
+    <string name="add_propietat">Add Property</string>
 </resources>

@@ -11,7 +11,7 @@
     <string name="icon_back">Enrere</string>
     <string name="icon_save">Guardar</string>
     <string name="icon_delete">Borrar</string>
-    <string name="property_user_list">Les teves propietats</string>
+    <string name="property_user_list">Les meves propietats</string>
     <string name="form">Afegir una propietat</string>
     <string name="register_name">Registre</string>
     <string name="register_fullname">Nom Complet</string>
@@ -48,4 +48,5 @@
     <string name="dialog_no">No</string>
     <string name="dialog_delete_title">Eliminar</string>
     <string name="copy">Correu electronic copiat correctament</string>
+    <string name="add_propietat">Afegeix Propietat</string>
 </resources>

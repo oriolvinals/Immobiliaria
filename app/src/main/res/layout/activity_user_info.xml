@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".Activitats.UserInfo">
 
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/register_fullname"
+        app:layout_constraintBottom_toTopOf="@+id/editName"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/register_phone"
+        app:layout_constraintBottom_toTopOf="@+id/editPhone"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -19,10 +41,21 @@
         app:titleTextColor="@color/colorWhite" />
 
     <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/register_email"
+        app:layout_constraintBottom_toTopOf="@+id/textEmail"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/textEmail"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/roboto_regular"
         android:text="TextView"
         android:textSize="18sp"
@@ -35,7 +68,7 @@
         android:id="@+id/editName"
         android:layout_width="388dp"
         android:layout_height="46dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:fontFamily="@font/roboto_regular"
         android:inputType="textPersonName"
@@ -48,7 +81,7 @@
         android:id="@+id/editPhone"
         android:layout_width="388dp"
         android:layout_height="46dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:fontFamily="@font/roboto_regular"
         android:inputType="phone"
@@ -61,14 +94,15 @@
         android:id="@+id/button3"
         android:layout_width="160dp"
         android:layout_height="55dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/colorBlue"
         android:fontFamily="@font/roboto_bold"
         android:onClick="saveUser"
         android:text="@string/icon_save"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     <Button
         android:id="@+id/button2"
@@ -81,17 +115,17 @@
         android:text="@string/icon_logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="16dp"
         android:visibility="invisible"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        tools:layout_editor_absoluteX="-45dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editPhone"
+        tools:layout_editor_absoluteX="8dp" />
 
     <TextView
         android:id="@+id/textView4"

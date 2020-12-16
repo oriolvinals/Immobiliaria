@@ -7,15 +7,8 @@
     android:scrollbars="vertical"
     tools:context=".Activitats.FormPropietat">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
+
 
 
 
@@ -40,6 +33,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:titleTextColor="@color/colorWhite" />
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/add_propietat"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
@@ -50,6 +54,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/formEquip"
                 app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/form_name"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/editName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
             <EditText
                 android:id="@+id/formNom"
                 android:layout_width="match_parent"
@@ -64,6 +81,19 @@
                 app:layout_constraintEnd_toEndOf="@+id/scrollView2"
                 app:layout_constraintStart_toStartOf="@+id/formDesc"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/form_ubi"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/editUbicacio"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <EditText
                 android:id="@+id/formUbi"
@@ -80,6 +110,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/formNom" />
 
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/form_preu"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/editUbicacio"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
             <EditText
                 android:id="@+id/formPreu"
                 android:layout_width="match_parent"
@@ -94,6 +137,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/formArea" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/form_area"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/editPreu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
             <EditText
                 android:id="@+id/formArea"
@@ -110,6 +166,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/formUbi" />
 
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/form_preu"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/editPreu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
             <EditText
                 android:id="@+id/formEquip"
                 android:layout_width="match_parent"
@@ -125,6 +194,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/formDesc" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/form_desc"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/editArea"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <EditText
                 android:id="@+id/formDesc"
@@ -162,5 +245,16 @@
 
         </TableLayout>
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,9 +24,10 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:onClick="captureQR"
+        app:backgroundTint="@color/colorDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_border_clear_24_dark" />
+        app:srcCompat="@drawable/ic_baseline_border_clear_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/listProps"
@@ -36,7 +37,8 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:onClick="goList"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@color/colorLight"
         app:layout_constraintBottom_toTopOf="@+id/addProp"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_format_list_bulleted_24" />
@@ -49,7 +51,8 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:onClick="goForm"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@color/colorDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_add_24" />
