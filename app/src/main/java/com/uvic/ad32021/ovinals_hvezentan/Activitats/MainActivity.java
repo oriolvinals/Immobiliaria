@@ -36,6 +36,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
+import static android.Manifest.permission.CALL_PHONE;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler{
     ArrayList<Propietat> list_propietats;

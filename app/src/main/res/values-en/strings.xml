@@ -5,7 +5,7 @@
     <string name="empty_props" translatable="false">There are currently no properties</string>
     <string name="empty_user_props">No own properties</string>
     <string name="property_list">Property list</string>
-    <string name="detail_property">Angles</string>
+    <string name="detail_property">" Property in detail"</string>
     <string name="icon_login">Log In</string>
     <string name="icon_register">Sign In</string>
     <string name="icon_logout">Log Out</string>

@@ -26,6 +26,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:titleTextColor="@color/colorWhite" />
+
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="138dp"
@@ -33,20 +34,8 @@
                 android:layout_marginTop="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
-            <TextView
-                android:id="@+id/imgProp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/roboto_medium"
-                android:text="TextView"
-                android:textSize="8sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
             <TextView
                 android:id="@+id/nomProp"
                 android:layout_width="wrap_content"
@@ -54,10 +43,10 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="TextView"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgProp" />
+
             <TextView
                 android:id="@+id/ubiProp"
                 android:layout_width="wrap_content"
@@ -65,10 +54,10 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="TextView"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nomProp" />
+
             <TextView
                 android:id="@+id/preuProp"
                 android:layout_width="wrap_content"
@@ -76,10 +65,10 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="TextView"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ubiProp" />
+
             <TextView
                 android:id="@+id/areaProp"
                 android:layout_width="wrap_content"
@@ -87,10 +76,10 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="TextView"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/preuProp" />
+
             <TextView
                 android:id="@+id/equipProp"
                 android:layout_width="wrap_content"
@@ -98,10 +87,10 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="TextView"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/areaProp" />
+
             <TextView
                 android:id="@+id/descProp"
                 android:layout_width="wrap_content"
@@ -109,7 +98,6 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="TextView"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/equipProp" />
@@ -168,6 +156,7 @@
 
         </TableLayout>
     </ScrollView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/trucar"
         android:layout_width="wrap_content"
@@ -175,6 +164,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:onClick="onCall"
         app:backgroundTint="@color/colorDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -187,6 +177,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:onClick="onMail"
         app:backgroundTint="@color/colorLight"
         app:layout_constraintBottom_toTopOf="@+id/trucar"
         app:layout_constraintEnd_toEndOf="parent"

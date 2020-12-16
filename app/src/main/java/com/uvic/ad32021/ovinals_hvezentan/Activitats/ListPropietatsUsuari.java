@@ -30,12 +30,6 @@ public class ListPropietatsUsuari extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_propietats_usuari);
 
-        if(Singleton.getInstance().getUserId() == ""){
-            Intent i = new Intent(ListPropietatsUsuari.this, MainActivity.class);
-            startActivity(i);
-            finish();
-        }
-
         this.list = (ListView)findViewById(R.id.listPref);
 
         Adapter_Propietat adapter = new Adapter_Propietat (this, R.layout.adapter_propietat, Singleton.getInstance().getPropietatsByUser());

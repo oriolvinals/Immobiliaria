@@ -3,12 +3,21 @@ package com.uvic.ad32021.ovinals_hvezentan.Activitats;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,7 +35,11 @@ import com.uvic.ad32021.ovinals_hvezentan.Singletons.Singleton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
+import static android.Manifest.permission.CALL_PHONE;
+
 
 public class InfoPropietat extends AppCompatActivity {
     String id;
@@ -87,8 +100,16 @@ public class InfoPropietat extends AppCompatActivity {
                             TextView t_equipaments = (TextView)findViewById(R.id.equipProp);
                             t_equipaments.setText(equipaments);
 
-                            TextView t_imatge = (TextView)findViewById(R.id.imgProp);
-                            t_imatge.setText(imatge);
+                            ImageView img = (ImageView)findViewById(R.id.imageView3);
+                            try{
+                                byte [] encodeByte= Base64.decode(imatge,Base64.DEFAULT);
+                                InputStream inputStream  = new ByteArrayInputStream(encodeByte);
+                                Bitmap bitmap  = BitmapFactory.decodeStream(inputStream);
+                                img.setImageBitmap(bitmap);
+                            }catch(Exception e){
+                                e.getMessage();
+                            }
+
 
                             TextView t_area = (TextView)findViewById(R.id.areaProp);
                             t_area.setText(String.valueOf(area) +" m²");
@@ -164,5 +185,20 @@ public class InfoPropietat extends AppCompatActivity {
         } else {
             return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void onCall(View view){
+        TextView t_phone = (TextView)findViewById(R.id.phoneProp);
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:" + t_phone.getText().toString()));
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+            startActivity(callIntent);
+        } else {
+            requestPermissions(new String[]{CALL_PHONE}, 1);
+        }
+    }
+
+    public void onMail(View view){
+
     }
 }

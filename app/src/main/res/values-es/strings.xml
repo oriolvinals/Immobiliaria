@@ -5,7 +5,7 @@
     <string name="empty_props">No hay propiedades actualmente</string>
     <string name="empty_user_props">No hay propiedades propias</string>
     <string name="property_list">Lista de propiedades</string>
-    <string name="detail_property">Español</string>
+    <string name="detail_property">Propiedad en detalle</string>
     <string name="icon_login">Inicar sessión</string>
     <string name="icon_register">Registrarse</string>
     <string name="icon_logout">Cerrar sessión</string>

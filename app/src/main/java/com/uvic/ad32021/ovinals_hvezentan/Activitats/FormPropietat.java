@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,6 +48,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import static android.Manifest.permission.CALL_PHONE;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+
 public class FormPropietat extends AppCompatActivity {
     FirebaseStorage storage;
     FirebaseFirestore db;
@@ -55,6 +60,7 @@ public class FormPropietat extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_READ_STORAGE = 2;
     private byte[] data;
     boolean photoUp = false;
+    Bitmap bitImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,30 +144,30 @@ public class FormPropietat extends AppCompatActivity {
 
                 }
             });
+
+            String bitmapS = BitMapToString(bitImg);
             //Add
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
             Propietat p = new Propietat("", nom.getText().toString(),
                     ubi.getText().toString(), des.getText().toString(),
-                    equip.getText().toString(), imageName, user_id,
+                    equip.getText().toString(), bitmapS, user_id,
                     Integer.parseInt(area.getText().toString()), Double.parseDouble(preu.getText().toString()));
             this.addPropietatToFirebase(p);
         }
     }
 
     public void onGallery(View view){
-        Log.i("Test", "Gallery Click");
         this.accessGallery();
     }
 
     public void accessGallery(){
-        Log.i("Test","captureImage");
         if (Build.VERSION.SDK_INT >= 23) {
-            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ){
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(i, RESULT_LOAD_GALERY_IMAGE);
+            } else {
+                requestPermissions(new String[]{READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_READ_STORAGE);
             }
-        } else  {
-            this.requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_READ_STORAGE);
         }
     }
 
@@ -178,6 +184,7 @@ public class FormPropietat extends AppCompatActivity {
                     Bitmap bitmap = ((BitmapDrawable) img.getDrawable()).getBitmap();
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    this.bitImg = bitmap;
                     this.data = baos.toByteArray();
                     photoUp = true;
                 } catch (IOException e) {
@@ -264,4 +271,11 @@ public class FormPropietat extends AppCompatActivity {
         }
     }
 
+    public String BitMapToString(Bitmap bitmap){
+        ByteArrayOutputStream baos = new  ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
+        byte [] b = baos.toByteArray();
+        String temp = Base64.encodeToString(b, Base64.DEFAULT);
+        return temp;
+    }
 }
