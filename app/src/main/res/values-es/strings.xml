@@ -12,7 +12,7 @@
     <string name="icon_back">Atrás</string>
     <string name="icon_save">Guardar</string>
     <string name="icon_delete">Borrar</string>
-    <string name="property_user_list">Mis propiedades</string>
+    <string name="property_user_list">Tus propiedades</string>
     <string name="form">Añadir una propiedad</string>
     <string name="register_name">Registro</string>
     <string name="register_fullname">Nombre Completo</string>

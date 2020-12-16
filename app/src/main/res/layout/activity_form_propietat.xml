@@ -44,16 +44,17 @@
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_width="390dp"
+                android:layout_height="113dp"
+                android:layout_marginTop="32dp"
                 android:onClick="onGallery"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/formEquip"
-                app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+                app:srcCompat="@drawable/ic_add_photo" />
 
             <TextView
                 android:id="@+id/textView12"

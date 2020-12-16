@@ -12,7 +12,7 @@
     <string name="icon_back">Back</string>
     <string name="icon_save">Save</string>
     <string name="icon_delete">Delete</string>
-    <string name="property_user_list">My properties</string>
+    <string name="property_user_list">Our properties</string>
     <string name="form">Add property</string>
     <string name="register_name">Register</string>
     <string name="register_fullname">Full Name</string>
