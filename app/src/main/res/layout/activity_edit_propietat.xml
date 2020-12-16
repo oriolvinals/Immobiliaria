@@ -222,33 +222,33 @@
 
             <Button
                 android:id="@+id/guardar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="0dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="0dp"
-                android:backgroundTint="@color/colorBlue"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="128dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="128dp"
+                android:background="@color/colorBlue"
+                android:fontFamily="@font/roboto_bold"
                 android:onClick="saveProp"
                 android:text="@string/icon_save"
-                app:layout_constraintStart_toStartOf="@id/editDesc"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <Button
                 android:id="@+id/eliminar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginBottom="16dp"
-                android:backgroundTint="#59FF0000"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="128dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="128dp"
+                android:background="@color/colorRed"
+                android:fontFamily="@font/roboto_bold"
                 android:onClick="deleteProp"
                 android:text="@string/icon_delete"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
         </TableLayout>
     </ScrollView>
 
@@ -262,5 +262,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

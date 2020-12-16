@@ -109,7 +109,7 @@
         android:layout_width="140dp"
         android:layout_height="48dp"
         android:layout_marginTop="64dp"
-        android:backgroundTint="#59FF0000"
+        android:backgroundTint="@color/colorRed"
         android:fontFamily="@font/roboto_bold"
         android:onClick="logOut"
         android:text="@string/icon_logout"
