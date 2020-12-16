@@ -173,7 +173,7 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginRight="16dp"
-                android:text="@string/form_preu"
+                android:text="@string/form_equipaments"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/editPreu"
                 app:layout_constraintStart_toStartOf="parent"
