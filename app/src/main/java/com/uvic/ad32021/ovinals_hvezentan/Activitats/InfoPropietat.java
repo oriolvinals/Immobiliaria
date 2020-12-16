@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.icu.text.IDNA;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -159,7 +160,9 @@ public class InfoPropietat extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     } else {
-                        Log.d("Test", "No such document");
+                        Intent i = new Intent(InfoPropietat.this, MainActivity.class);
+                        startActivity(i);
+                        finish();
                     }
                 } else {
                     Log.d("Test", "get failed with ", task.getException());

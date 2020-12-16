@@ -180,6 +180,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
             Intent i = new Intent(MainActivity.this, InfoPropietat.class);
             i.putExtra("id", rawResult.getText().toString());
             startActivity(i);
+            finish();
         }
         stopCamera();
     }
