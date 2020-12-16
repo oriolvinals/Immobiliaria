@@ -243,6 +243,7 @@
                 android:layout_marginLeft="128dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginRight="128dp"
+                android:layout_marginBottom="16dp"
                 android:background="@color/colorRed"
                 android:fontFamily="@font/roboto_bold"
                 android:onClick="deleteProp"
