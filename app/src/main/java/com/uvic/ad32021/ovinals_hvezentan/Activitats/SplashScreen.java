@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity {
         //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         Singleton.getInstance();
 
-        final long DELAY = 2000;
+        final long DELAY = 5000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

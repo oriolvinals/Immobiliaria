@@ -43,7 +43,7 @@ public class Singleton {
                 .build();
         db.setFirestoreSettings(settings);
 
-
+    
         this.storage = FirebaseStorage.getInstance("gs://immobiliaria-e7861.appspot.com/");
         this.syncData();
     }
